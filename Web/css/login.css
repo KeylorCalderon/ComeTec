@@ -1,0 +1,83 @@
+body {
+    margin: 0; /* Eliminar el margen predeterminado del cuerpo */
+    font-family: Arial, sans-serif; /* Establecer la fuente para todo el documento */
+    background-color: #06005d; /* Color de fondo de la página */
+}
+
+header {
+    background-color: rgb(255, 255, 255); /* Color de fondo del encabezado */
+    color: rgb(10, 7, 7); /* Color del texto del encabezado */
+    padding: 20px; /* Espacio alrededor del encabezado */
+    display: flex; /* Establecer el diseño de la caja del encabezado en un modelo de caja flexible */
+    align-items: center; /* Centrar verticalmente los elementos dentro de la caja del encabezado */
+}
+
+img {
+    height: 50px; /* Establecer la altura de la imagen del logo */
+    margin-right: 10px; /* Espacio entre el logo y el título del encabezado */
+}
+
+main {
+    max-width: 250px; /* Establecer el ancho máximo del contenido principal */
+    position: relative; /* Establecer la posición relativa para el div */
+	left: 650px; /* Mover el div 100 píxeles a la derecha */
+    top: 20px; 
+    background-color: rgb(218, 218, 218); /* Color de fondo del contenido principal */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agregar sombra a la caja del contenido principal */
+    border-radius: 5px; /* Agregar bordes redondeados a la caja del contenido principal */
+}
+
+.contenedor {
+    position: relative; /* Establecer la posición relativa para el div */
+	left: 250px; /* Mover el div 100 píxeles a la derecha */
+    top: 20px; 
+    width: 1000px;
+    height: 750px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agregar sombra a la caja del contenido principal */
+    border-radius: 5px; /* Agregar bordes redondeados a la caja del contenido principal */
+ 
+}
+
+.login {
+    
+    position: relative; /* Establecer la posición relativa para el div */
+	left: 800px; /* Mover el div 100 píxeles a la derecha */
+    top: 90px; 
+    width: 170px;
+    height: 190px;
+    padding: 10px; /* Espacio alrededor del contenido principal */
+    background-color: rgb(222, 221, 221);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Agregar sombra a la caja del contenido principal */
+    border-radius: 4px; /* Agregar bordes redondeados a la caja del contenido principal */
+ 
+}
+
+input[type="text"], input[type="password"], input[type="submit"] {
+    display: block; /* Convertir los campos de entrada y el botón de enviar en elementos de bloque para que se muestren uno debajo del otro */
+    width: 95%; /* Ancho completo para los campos de entrada y el botón de enviar */
+    margin-bottom: 20px; /* Espacio entre los campos de entrada y el botón de enviar */
+    border: none; /* Eliminar el borde de los campos de entrada y el botón de enviar */
+    border-radius: 5px; /* Agregar bordes redondeados a los campos de entrada y el botón de enviar */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Agregar sombra a los campos de entrada y el botón de enviar */
+    font-size: 13px; /* Establecer el tamaño de fuente para los campos de entrada y el botón de enviar */
+}
+
+input[type="submit"] {
+    background-color: #2a62ff; /* Color de fondo del botón de enviar */
+    color: #fff; /* Color del texto del botón de enviar */
+    cursor: pointer; /* Cambiar el cursor del mouse cuando el usuario pase sobre el botón de enviar */
+}
+
+input[type="submit"]:hover {
+    background-color: #92adf9; /* Cambiar el color de fondo del botón de enviar cuando el usuario pase sobre él */
+}
+
+input[type="submit"]:focus {
+    outline: none
+}
+
+input[type="submit"]:active {
+background-color: rgb(181, 181, 181); /* Cambiar el color de fondo del botón de enviar cuando el usuario hace clic en él */
+}
