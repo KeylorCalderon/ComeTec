@@ -2,7 +2,7 @@
 <footer id="contacto">
         <div class="contenedor footer-content">
             <div class="contact-us">
-                <h2 class="brand">KeysForGeeks &copy;</h2>
+                <h2 class="brand">Come-TEC &copy;</h2>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, accusamus.</p>
             </div>
             <div class="social-media">

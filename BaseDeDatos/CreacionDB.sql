@@ -1,89 +1,70 @@
-#CREATE DATABASE keysforgeeks_DB;
+CREATE DATABASE cometec_DB;
 
-USE keysforgeeks_DB;
-
-CREATE TABLE Plataforma(ID INT PRIMARY KEY AUTO_INCREMENT,
-						nombre VARCHAR(20));
-
-CREATE TABLE Videojuego(ID INT PRIMARY KEY AUTO_INCREMENT,
-						nombre VARCHAR(50),
-						codigo VARCHAR(20),
-                        plataformaID INT,
-                        precio FLOAT,
-                        imagen MEDIUMBLOB,
-						descripcion VARCHAR(250),
-                        FOREIGN KEY (plataformaID) REFERENCES Plataforma (ID));
-                        
-CREATE TABLE Promocion(ID INT PRIMARY KEY AUTO_INCREMENT,
-						rebaja FLOAT,
-                        imagen MEDIUMBLOB);
-                        
-CREATE TABLE PromocionXVideojuego(ID INT PRIMARY KEY AUTO_INCREMENT,
-								promocionID INT,
-								videojuegoID INT,
-                                FOREIGN KEY (promocionID) REFERENCES Promocion (ID),
-                                FOREIGN KEY (videojuegoID) REFERENCES Videojuego (ID));
-                                
-CREATE TABLE Genero(ID INT PRIMARY KEY AUTO_INCREMENT,
-						nombre VARCHAR(50),
-                        descripcion VARCHAR(250));
-                        
-CREATE TABLE GeneroXVideojuego(ID INT PRIMARY KEY AUTO_INCREMENT,
-								generoID INT,
-								videojuegoID INT,
-                                FOREIGN KEY (generoID) REFERENCES Genero (ID),
-                                FOREIGN KEY (videojuegoID) REFERENCES Videojuego (ID));
-
-CREATE TABLE Descuento(ID INT PRIMARY KEY AUTO_INCREMENT,
-						videojuegoID INT,
-                        descuento FLOAT,
-                        imagen MEDIUMBLOB,
-                        FOREIGN KEY (videojuegoID) REFERENCES Videojuego (ID));
-                        
-CREATE TABLE Usuario(ID INT PRIMARY KEY AUTO_INCREMENT,
-						email VARCHAR(50),
-						contrasena VARCHAR(20));
+USE cometec_DB;
                         
 CREATE TABLE Administrador(ID INT PRIMARY KEY AUTO_INCREMENT,
-						nivel INT,
-                        usuarioID INT,
-                        FOREIGN KEY (usuarioID) REFERENCES Usuario (ID));
-                        
-CREATE TABLE Cliente(ID INT PRIMARY KEY AUTO_INCREMENT,
-						direccion VARCHAR(50),
-                        movil INT,
-                        usuarioID INT,
-                        FOREIGN KEY (usuarioID) REFERENCES Usuario (ID));
+						usuario VARCHAR(50),
+                        contrasena VARCHAR(50));
 
-CREATE TABLE Carrito(ID INT PRIMARY KEY AUTO_INCREMENT,
-					clienteID INT,
-					FOREIGN KEY (clienteID) REFERENCES Cliente (ID));
+CREATE TABLE Estudiante(ID INT PRIMARY KEY AUTO_INCREMENT,
+						nombre VARCHAR(100),
+                        apellidos VARCHAR(100),
+						identificacion VARCHAR(50));
                         
-CREATE TABLE CarritoXVideojuego(ID INT PRIMARY KEY AUTO_INCREMENT,
-								carritoID INT,
-								videojuegoID INT,
-                                FOREIGN KEY (carritoID) REFERENCES Carrito (ID),
-                                FOREIGN KEY (videojuegoID) REFERENCES Videojuego (ID));
+CREATE TABLE Institucion(ID INT PRIMARY KEY AUTO_INCREMENT,
+						usuario VARCHAR(50),
+                        contrasena VARCHAR(50),
+                        nombre VARCHAR(50),
+                        estado BIT);
+
+CREATE TABLE Grado(ID INT PRIMARY KEY AUTO_INCREMENT,
+					nombre VARCHAR(200));
+
+CREATE TABLE Equipo(ID INT PRIMARY KEY AUTO_INCREMENT,
+					institucionID INT,
+					gradoID INT,
+                    nombre VARCHAR(200),
+                    codigo VARCHAR(50),
+					FOREIGN KEY (gradoID) REFERENCES Grado(ID),
+                    FOREIGN KEY (institucionID) REFERENCES Institucion(ID));
+
+CREATE TABLE EstudianteXEquipo(ID INT PRIMARY KEY AUTO_INCREMENT,
+                    estudianteID INT,
+                    equipoID INT,
+                    FOREIGN KEY (estudianteID) REFERENCES Estudiante(ID),
+                    FOREIGN KEY (equipoID) REFERENCES Equipo(ID));
                                 
-CREATE TABLE Factura(ID INT PRIMARY KEY AUTO_INCREMENT,
-					carritoID INT,
-					fecha DATE,
-                    subtotal FLOAT,
-					FOREIGN KEY (carritoID) REFERENCES Carrito (ID));
+CREATE TABLE Examen(ID INT PRIMARY KEY AUTO_INCREMENT,
+					gradoID INT,
+					nombre VARCHAR(200),
+                    fechaEjecucion DATE,
+					FOREIGN KEY (gradoID) REFERENCES Grado(ID));
    
-CREATE TABLE Preguntas(ID INT PRIMARY KEY AUTO_INCREMENT,
-					usuarioID INT,
-                    videojuegoID INT,
-                    comentario VARCHAR(250),
-                    fecha DATE,
-                    estrellas INT,
-                    FOREIGN KEY (videojuegoID) REFERENCES Videojuego (ID),
-					FOREIGN KEY (usuarioID) REFERENCES Usuario (ID));
-                    
-CREATE TABLE Respuestas(ID INT PRIMARY KEY AUTO_INCREMENT,
-					usuarioID INT,
+CREATE TABLE Pregunta(ID INT PRIMARY KEY AUTO_INCREMENT,
+					examenID INT,
+                    pregunta VARCHAR(500),
+                    FOREIGN KEY (examenID) REFERENCES Examen(ID));
+
+CREATE TABLE Distractor(ID INT PRIMARY KEY AUTO_INCREMENT,
+                    distractor VARCHAR(500));
+
+CREATE TABLE PreguntaXDistractor(ID INT PRIMARY KEY AUTO_INCREMENT,
                     preguntaID INT,
-                    comentario VARCHAR(250),
-                    fecha DATE,
-                    FOREIGN KEY (preguntaID) REFERENCES Preguntas (ID),
-					FOREIGN KEY (usuarioID) REFERENCES Usuario (ID));
+                    distractorID INT,
+                    FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID),
+                    FOREIGN KEY (distractorID) REFERENCES Distractor(ID));
+
+                    
+CREATE TABLE Respuesta(ID INT PRIMARY KEY AUTO_INCREMENT,
+                    preguntaID INT,
+                    respuesta VARCHAR(500),
+                    FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID));
+
+CREATE TABLE Imagen(ID INT PRIMARY KEY AUTO_INCREMENT,
+                    direccion VARCHAR(500));
+
+CREATE TABLE PreguntaXImagen(ID INT PRIMARY KEY AUTO_INCREMENT,
+                    preguntaID INT,
+                    imagenID INT,
+                    FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID),
+                    FOREIGN KEY (imagenID) REFERENCES Imagen(ID));

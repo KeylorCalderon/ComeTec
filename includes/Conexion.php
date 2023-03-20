@@ -7,7 +7,7 @@ function cerrar($conn){
 function conectar(){
     
     $servername = "localhost";
-    $database = "keysforgeeks_db";
+    $database = "cometec_DB";
     $username = "root";
     $password = "";
     //$username = "usuario";
