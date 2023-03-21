@@ -1,5 +1,7 @@
 
-<footer>
+
+<footer >
+
         <div>
             <div class="contact-us">
                 <h2 class="brand">Come-TEC &copy;</h2>

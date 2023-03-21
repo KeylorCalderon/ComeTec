@@ -6,7 +6,6 @@
 <html lang="en">
 
 
-
 <?php
         include "includes/Encabezado.php";
 ?>
