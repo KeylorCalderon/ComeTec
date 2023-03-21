@@ -14,33 +14,47 @@
         include "includes/Encabezado.php";
 ?>
 <body>
-	<div class="container">
-		<h2>Inicio de Sesión de Institución</h2>
+
+    <div class="espacio">   
+    </div>
+    <div class="espacio">   
+    </div>
+
+	<div class="registro-form">
+		<h2>Inicio de sesión institución</h2>
 		<form method="POST">
 
         <h3>Inicio de sesión</h3>
+			
+			<label for="username">Nombre de usuario:</label>
+			<input type="text" id="username" name="username"  class="registro-input" required>
+			
+			<label for="password">Contraseña:</label>
+			<input type="password" id="password" name="password"  class="registro-input" required>
 
-			<div class="form-group">
-				<label for="username">Nombre de usuario:</label>
-				<input type="text" id="username" name="username" required>
-			</div>
-			<div class="form-group">
-				<label for="password">Contraseña:</label>
-				<input type="password" id="password" name="password" required>
-			</div>
-			<div class="form-group">
-				<input type="submit" value="ingresar" name="Ingresar">
-			</div>
+			<input type="submit" value="Ingresar" name="Ingresar"  class="registrobutton">
+		
 		</form>
 
 
 		<form method="POST" action="registroInstitucion.php">
-			<div class="form-group">
-				<input type="submit" value="Registrar">
-			</div>
+		
+				<input type="submit" value="Registrar"  class="registrobutton">
+		
 		</form>
 	</div>
 </body>
+
+<div class="espacio">   
+    </div>
+
+    <div class="espacio">   
+    </div> 
+
+<?php
+            include "includes/PiePagina.php";
+        ?>
+
 
 <?php
 
@@ -65,7 +79,7 @@
         mysqli_close($conn);
     }
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ingresar'])) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['Ingresar'])) {
         ValidarDatos();
     }
 ?>
