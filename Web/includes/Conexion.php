@@ -9,7 +9,7 @@ function conectar(){
     $servername = "localhost";
     $database = "cometec_DB";
     $username = "root";
-    $password = "";
+    $password = "root";
     //$username = "usuario";
     //$password = "1234";
     //$username = "keysforgeeks_usuario";
