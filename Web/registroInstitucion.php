@@ -7,23 +7,6 @@
 
     <body>
 
-        <div class="wrapper">        
-            <main>
-                <nav class="menu-paginas">
-                    <a href="catalogo-productos-servicios.php">Catalogo de productos</a>
-                    <a href="ReiniciarBD.php">Reiniciar la Base de Datos</a>
-                    <a href="automatizacion.php">Registrar empresa</a>
-                    <a href="registroInstitucion.php">Registrar institución</a>
-                    <a href="ranking.php">Ver ranking</a>
-                    <a href="gestionEquipos.php">Gestionar Equipos</a>
-                </nav> 
-            </main>
-        </div>
-
-        <div class="espacio">   
-        </div>
-
-        <div class="contenedor">
             
         <html>
             <head>
@@ -54,8 +37,8 @@
             </body>
         </html>
 
-        </div>
-            <div class="espacio">       
+    
+        <div class="espacio">       
         </div>
 
         <?php
