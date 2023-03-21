@@ -17,7 +17,7 @@
                 <a href="automatizacion.php">Registrar empresa</a>
                 <a href="registroInstitucion.php">Registrar institución</a>
                 <a href="ranking.php">Ver ranking</a>
-                <a href="gestionEquipos.php">Gestionar Equipos</a>
+                <a href="gestionEquipos.php?ID=1">Gestionar Equipos</a>
                 <a href="loginAdminForm.php">Iniciar Sesión de Administrador</a>
                 <a href="gestionarInstituciones.php">Gestionar Instituciones</a>
                 <a href="gestionarInstitucionesPendientes.php">Gestionar instituciones Pendientes</a>
