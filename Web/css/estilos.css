@@ -47,14 +47,13 @@ footer {
 
 .contenedor {
     position: relative; /* Establecer la posición relativa para el div */
-	left: 250px; /* Mover el div 100 píxeles a la derecha */
-    top: 20px; 
-    width: 1000px;
+	left: 170px; /* Mover el div 100 píxeles a la derecha */
+    width: 1160px;
     height: 750px;
     background-color: rgb(255, 255, 255);
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agregar sombra a la caja del contenido principal */
-    border-radius: 5px; /* Agregar bordes redondeados a la caja del contenido principal */
+    border-radius: 20px; /* Agregar bordes redondeados a la caja del contenido principal */
  
 }
 
@@ -112,8 +111,11 @@ background-color: rgb(181, 181, 181); /* Cambiar el color de fondo del botón de
     table-layout: fixed;
   }
 
-.wrapper{
+  .wrapper{
+    position: relative; /* Establecer la posición relativa para el div */
+	left: 152px; /* Mover el div 100 píxeles a la derecha */
     min-height:calc(100%);
+    width: 80%; 
     align-items: center;
 }
 
@@ -129,6 +131,15 @@ th:first-child{
     text-align: left;
 }
 
+.botonsinestilo {
+    border: none;
+    background-color: transparent;
+    color: #2a62ff;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
 th:last-child{
     text-align: right;
 }
