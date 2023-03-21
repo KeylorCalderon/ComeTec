@@ -43,6 +43,7 @@ CREATE TABLE Examen(ID INT PRIMARY KEY AUTO_INCREMENT,
 CREATE TABLE Pregunta(ID INT PRIMARY KEY AUTO_INCREMENT,
 					examenID INT,
                     pregunta VARCHAR(500),
+                    puntos INT,
                     FOREIGN KEY (examenID) REFERENCES Examen(ID));
 
 CREATE TABLE Distractor(ID INT PRIMARY KEY AUTO_INCREMENT,
@@ -68,3 +69,21 @@ CREATE TABLE PreguntaXImagen(ID INT PRIMARY KEY AUTO_INCREMENT,
                     imagenID INT,
                     FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID),
                     FOREIGN KEY (imagenID) REFERENCES Imagen(ID));
+
+CREATE TABLE PreguntaXImagen(ID INT PRIMARY KEY AUTO_INCREMENT,
+                    preguntaID INT,
+                    imagenID INT,
+                    FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID),
+                    FOREIGN KEY (imagenID) REFERENCES Imagen(ID));
+
+CREATE TABLE Calificacion(ID INT PRIMARY KEY AUTO_INCREMENT,
+                    examenID INT,
+                    estudianteID INT,
+                    nota DECIMAL(10,2),
+                    FOREIGN KEY (examenID) REFERENCES Examen(ID),
+                    FOREIGN KEY (estudianteID) REFERENCES Estudiante(ID));
+
+CREATE TABLE CalificacionPregunta(ID INT PRIMARY KEY AUTO_INCREMENT,
+                    calificacionID INT,
+                    nota DECIMAL(10,2),
+                    FOREIGN KEY (calificacionID) REFERENCES Calificacion(ID));

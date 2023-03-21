@@ -18,13 +18,31 @@ img {
 }
 
 main {
-    max-width: 250px; /* Establecer el ancho máximo del contenido principal */
     position: relative; /* Establecer la posición relativa para el div */
-	left: 650px; /* Mover el div 100 píxeles a la derecha */
-    top: 20px; 
+    max-width: 100%;
+	margin: 20px;
     background-color: rgb(218, 218, 218); /* Color de fondo del contenido principal */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agregar sombra a la caja del contenido principal */
     border-radius: 5px; /* Agregar bordes redondeados a la caja del contenido principal */
+}
+
+footer {
+    background-color: rgb(255, 255, 255); /* Color de fondo del encabezado */
+    color: rgb(10, 7, 7); /* Color del texto del encabezado */
+    padding: 20px; /* Espacio alrededor del encabezado */
+    display: flex; /* Establecer el diseño de la caja del encabezado en un modelo de caja flexible */
+    align-items: center; /* Centrar verticalmente los elementos dentro de la caja del encabezado */
+    padding-bottom: 0.1px;
+    position: relative;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 60px;
+    padding-bottom: 40px;
 }
 
 .contenedor {
@@ -80,4 +98,68 @@ input[type="submit"]:focus {
 
 input[type="submit"]:active {
 background-color: rgb(181, 181, 181); /* Cambiar el color de fondo del botón de enviar cuando el usuario hace clic en él */
+}
+
+.espacio{
+    height:25px;
+}
+
+.galeria {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-collapse:collapse;
+    table-layout: fixed;
+  }
+
+.wrapper{
+    min-height:calc(100%);
+    align-items: center;
+}
+
+th{    /*encabezados de tabla*/
+    background: rgb(0, 0, 0);
+    color:rgb(0, 0, 0);
+    font-weight: 300;
+    padding: 6px;
+    vertical-align: middle;
+    text-align: center;
+}
+th:first-child{
+    text-align: left;
+}
+
+th:last-child{
+    text-align: right;
+}
+
+td{   /* texto de las columnas */
+    color: rgb(0, 0, 0);
+    font-weight: 300;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.titulos {
+    max-width: 100%;
+    vertical-align: center;
+    font-size: 125%;
+    color: black;
+}
+
+.btn-estandar{
+    position: relative;
+    padding: 5px 10px 5px 10px;
+    font-size: 17px;
+    border-radius: 5px;
+    border-color: transparent;
+    color: #000;
+    cursor: pointer;
+    background:  rgb(218, 218, 218);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }

@@ -2,6 +2,12 @@
 
 function borrarBD($conn){
     try {
+        $sql= "DROP TABLE CalificacionPregunta;" ;
+        $conn->query($sql);
+
+        $sql= "DROP TABLE Calificacion;" ;
+        $conn->query($sql);
+
         $sql= "DROP TABLE PreguntaXImagen;" ;
         $conn->query($sql);
 
@@ -98,6 +104,7 @@ function crearBD($conn){
         $sql= "CREATE TABLE Pregunta(ID INT PRIMARY KEY AUTO_INCREMENT,
         examenID INT,
         pregunta VARCHAR(500),
+        puntos INT,
         FOREIGN KEY (examenID) REFERENCES Examen(ID));" ;
         $conn->query($sql);
 
@@ -127,6 +134,20 @@ function crearBD($conn){
         imagenID INT,
         FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID),
         FOREIGN KEY (imagenID) REFERENCES Imagen(ID));" ;
+        $conn->query($sql);
+
+        $sql= "CREATE TABLE Calificacion(ID INT PRIMARY KEY AUTO_INCREMENT,
+        examenID INT,
+        estudianteID INT,
+        nota DECIMAL(10,2),
+        FOREIGN KEY (examenID) REFERENCES Examen(ID),
+        FOREIGN KEY (estudianteID) REFERENCES Estudiante(ID));" ;
+        $conn->query($sql);
+
+        $sql= "CREATE TABLE CalificacionPregunta(ID INT PRIMARY KEY AUTO_INCREMENT,
+        calificacionID INT,
+        nota DECIMAL(10,2),
+        FOREIGN KEY (calificacionID) REFERENCES Calificacion(ID));" ;
         $conn->query($sql);
 
         echo 'Creación de tablas éxitosa', "\n";
@@ -287,15 +308,15 @@ function cargarDatos($conn){
                 (3,'Derivadas e Integrales', '2021-11-21');";
         $conn->query($sql);
 
-        $sql = "INSERT INTO Pregunta(examenID, pregunta)
-        VALUES  (1, 'Cuanto es 2+2'),
-                (1, 'Cuanto es 5*3'),
-                (2, 'Cuanto es 5+2'),
-                (2, 'Cuanto es 2*3'),
-                (3, 'Cuanto es 3/2'),
-                (3, 'Cuanto es 2-9*2'),
-                (4, 'Cuanto es 5*0+300'),
-                (4, 'Cuanto es 5039*129218-12');";
+        $sql = "INSERT INTO Pregunta(examenID, pregunta, puntos)
+        VALUES  (1, 'Cuanto es 2+2', 15),
+                (1, 'Cuanto es 5*3', 25),
+                (2, 'Cuanto es 5+2', 10),
+                (2, 'Cuanto es 2*3', 5),
+                (3, 'Cuanto es 3/2', 30),
+                (3, 'Cuanto es 2-9*2', 50),
+                (4, 'Cuanto es 5*0+300', 60),
+                (4, 'Cuanto es 5039*129218-12', 25);";
         $conn->query($sql);
 
         $sql = "INSERT INTO Distractor(distractor)
@@ -379,6 +400,37 @@ function cargarDatos($conn){
         VALUES  (3, 1);";
         $conn->query($sql);
 */
+        $sql = "INSERT INTO Calificacion(examenID, estudianteID, nota)
+        VALUES  (1, 1, 80),
+                (2, 2, 14),
+                (3, 3, 12),
+                (4, 4, 1),
+                (1, 5, 10),
+
+                (2, 6, 19),
+                (3, 7, 18),
+                (4, 8, 74),
+                (1, 9, 15),
+                (2, 10, 34),
+
+                (3, 11, 97.5),
+                (4, 12, 100);";
+        $conn->query($sql);
+
+        $sql = "INSERT INTO CalificacionPregunta(calificacionID, nota)
+        VALUES  (1,100),
+                (2,23),
+                (3,30),
+                (4,1),
+                (5,15),
+                (6,12),
+                (7,11),
+                (8,3),
+                (9,5),
+                (10,7),
+                (11,77),
+                (12,79);";
+        $conn->query($sql);
 
         echo 'Cargado de datos éxitoso', "\n";
     } catch (Exception $e) {

@@ -23,20 +23,26 @@
         <div class="galeria">
             <table class="galeria" width="75%">
               <?php
+                $examenID=$_GET['ID'];
+
                 $conn=conectar();
-                $result=mysqli_query($conn, "SELECT * FROM Examen");                     
+                $result=mysqli_query($conn, "SELECT * FROM Calificacion WHERE examenID='$examenID'");                     
                 while($row=mysqli_fetch_assoc($result)){
                   $ID=$row['ID'];
-                  $nombre=$row['nombre'];
-                  $fecha=$row['fechaEjecucion'];
+                  $estudianteID=$row['estudianteID'];
+                  $nota=$row['nota'];
+
+                  $resultEstudiante=mysqli_query($conn, "SELECT * FROM Estudiante WHERE ID='$estudianteID'");                     
+                  $rowE=mysqli_fetch_assoc($resultEstudiante);
+                  $estudianteNombre=$rowE['nombre'];
                   echo "<div>
                           <tr class='espacio'></tr>
                             <tr class='galeria-item' bgcolor=#F7F7FE>
                                 <td class='titulos'  width='150px'>
-                                    <h4>$nombre</h4>
+                                    <h4>$estudianteNombre</h4>
                                 </td>
                                 <td class='titulos'  width='450px'>
-                                    <h4>Fecha de ejecución: $fecha</h4>
+                                    <h4>Nota: $nota</h4>
                                 </td>
                                 <td class='titulos'  width='150px'>
                                     <form class='titulos' action='rankingExamen.php?ID=$ID' method='post'>
