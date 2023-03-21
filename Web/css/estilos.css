@@ -193,12 +193,14 @@ td{   /* texto de las columnas */
 }
 
 
-.registro-button {
+.registrobutton {
   background-color: #333;
   color: #fff;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 13px 20px;
+  display: block;
+  margin: auto;
+  font-size: 50px;
   cursor: pointer;
 }
 
