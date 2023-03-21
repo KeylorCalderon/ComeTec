@@ -29,7 +29,6 @@
             <input type="text" name="username" placeholder="Usuario">
             <input type="password" name="password" placeholder="Contraseña">
             <input type="submit" name="ingresar" value="Ingresar">
-            <button type="button" class=botonsinestilo >Registrar</button>
         </form>
     </div>
 

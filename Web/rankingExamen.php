@@ -5,8 +5,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <?php
         include "includes/Encabezado.php";
 ?>
@@ -59,8 +57,6 @@
             </table>
         </div>
     </main>
-
-    
 
     <?php
         include "includes/PiePagina.php";
