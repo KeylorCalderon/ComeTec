@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Come-TEC</title>
-    <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="css/estilos.css" />
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,7 @@
 </head>
 
 <header>
-    <a href="index.php"><img width="200px" src="img/logo.jpg" alt="logo"></a>
+    <a href="index.php"><img width="200px" src="images/Logo.png" alt="logo"></a>
 
         <div class="buscador">
                 <input type="text" name="search" placeholder="Buscar..." class="src" autocomplete="off">
