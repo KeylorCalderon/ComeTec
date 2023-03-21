@@ -22,31 +22,10 @@
         </style>
         <div class="galeria">
             <table class="galeria" width="75%">
-                
               <?php
-                $institutoID=$_GET['ID'];
+                $idInstitucion = $_GET['idInstitucion'];
                 $conn=conectar();
-                $result=mysqli_query($conn, "SELECT * FROM equipo WHERE institucionID=$institutoID");
-
-                echo "<div>
-                          <tr class='espacio'></tr>
-                            <tr class='galeria-item' bgcolor=#F7F7FE>
-                                <td class='titulos'  width='150px'>
-                                    <h4>                    </h4>
-                                </td>
-                                </td>
-                                <td class='titulos'  width='450px'>
-                                    <h4>Agregar Nuevo Equipo</h4>
-                                </td>                              
-                                <td class='titulos'  width='150px'>
-                                    <form class='titulos' action='gestionEquipos.php?ID=$institutoID' method='post'>
-                                        <button type='submit' name='ID' id='$institutoID' class='btn-estandar'>Crear</button>
-                                    </form> 
-                                </td>
-                            </tr>
-                          <tr class='espacio'></tr>
-                </div>";   
-
+                $result=mysqli_query($conn, "SELECT * FROM equipo WHERE institucionID = '$idInstitucion'");                                     
                 while($row=mysqli_fetch_assoc($result)){
                   $ID=$row['ID'];
                   $nombre=$row['nombre'];
