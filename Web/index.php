@@ -18,6 +18,7 @@
                 <a href="ReiniciarBD.php">Reiniciar la Base de Datos</a>
                 <a href="automatizacion.php">Registrar empresa</a>
                 <a href="ranking.php">Ver ranking</a>
+                <a href="gestionEquipos.php">Gestionar Equipos</a>
             </nav> 
         </main>
 
