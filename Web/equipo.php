@@ -9,6 +9,7 @@
 
 <?php
         include "includes/Encabezado.php";
+
 ?>
 <body>     
     <main>
@@ -25,7 +26,6 @@
               <?php
 
                 $equipoID=$_GET['ID'];
-
                 $conn=conectar();
                 $result=mysqli_query($conn, "SELECT * FROM estudianteXequipo WHERE equipoID='$equipoID'");
 
