@@ -6,7 +6,6 @@
 <html lang="en">
 
 
-
 <?php
         include "includes/Encabezado.php";
 ?>
@@ -20,8 +19,8 @@
                 border-radius: 0px 15px 15px 0px;
             }
         </style>
-        <div class="galeria">
-            <table class="galeria" width="75%">
+        <div class="tablaEquipos">
+            <table class="tablaEquipos" width="75%">
                 
               <?php
                 $institutoID=$_GET['ID'];
@@ -30,7 +29,7 @@
 
                 echo "<div>
                           <tr class='espacio'></tr>
-                            <tr class='galeria-item' bgcolor=#F7F7FE>
+                            <tr class='tablaEquipos-item' bgcolor=#F7F7FE>
                                 <td class='titulos'  width='150px'>
                                     <h4>                    </h4>
                                 </td>
@@ -53,12 +52,16 @@
                   $codigo=$row['codigo'];
                   echo "<div>
                           <tr class='espacio'></tr>
-                            <tr class='galeria-item' bgcolor=#F7F7FE>
+                            <tr class='tablaEquipos-item' bgcolor=#F7F7FE>
                                 <td class='titulos'  width='150px'>
                                     <h4>$nombre</h4>
                                 </td>
-                                <td class='titulos'  width='450px'>
-                                    <h4>Código: $codigo</h4>
+                                <td class='titulosHorizontal' width='750px'>
+                                    <h4>Código:&nbsp</h4>
+                                    <h4 id='id-$ID-a-copiar'>$codigo</h4>
+                                    <h4>&nbsp</h4>
+                                    <i class=\"far fa-clipboard\" onclick='copyToClipboard(\"id-$ID-a-copiar\")'></i>
+
                                 </td>
                                 <td class='titulos'  width='150px'>
                                     <form class='titulos' action='equipo.php?ID=$ID' method='post'>
@@ -76,6 +79,19 @@
         </div>
     </main>
 
+    <script>
+        function copyToClipboard(id) {
+            var texto = document.getElementById(id).innerText; //Obtiene el texto a copiar
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = texto;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            alert("El texto se ha copiado al portapapeles."); //Muestra una alerta para confirmar la acción
+        }
+
+    </script>
     
 
     <?php

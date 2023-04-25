@@ -42,11 +42,6 @@
                                 <td class='titulos'  width='450px'>
                                     <h4>Nota: $nota</h4>
                                 </td>
-                                <td class='titulos'  width='150px'>
-                                    <form class='titulos' action='rankingExamen.php?ID=$ID' method='post'>
-                                        <button type='submit' name='ID' id='$ID' class='btn-estandar'>Ver</button>
-                                    </form> 
-                                </td>
                             </tr>
                           <tr class='espacio'></tr>
                         </div>";

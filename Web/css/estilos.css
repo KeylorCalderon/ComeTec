@@ -109,7 +109,25 @@ background-color: rgb(181, 181, 181); /* Cambiar el color de fondo del botón de
     align-items: center;
     border-collapse:collapse;
     table-layout: fixed;
+}
+
+.tablaEquipos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-collapse:collapse;
+    table-layout: fixed;
+}
+
+.tablaEquipos-item {
+    text-align: center;
   }
+  
+  .tablaEquipos-item tr {
+    vertical-align: middle;
+  }
+  
+  
 
   .wrapper{
     position: relative; /* Establecer la posición relativa para el div */
@@ -162,6 +180,20 @@ td{   /* texto de las columnas */
     font-size: 125%;
     color: black;
 }
+
+.titulosHorizontal {
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 125%;
+    color: black;
+  }
+  
+  
+  
+
 
 .btn-estandar{
     position: relative;
@@ -216,5 +248,13 @@ td{   /* texto de las columnas */
   color: #333;
 }
 
-
+.btnIcono {
+    background: url('ruta/a/tu/icono/clipboard.png') no-repeat;
+    width: 30px; /* ancho del icono */
+    height: 30px; /* alto del icono */
+  }
+  
+  .btnIcono:hover i {
+    color: #fff;
+  }
 
