@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "Inicio de sesión exitoso";
+        echo "<script>location.href='index.php';</script>";
     } else {
         echo "Error al iniciar sesión: " . $conn->error;
     }

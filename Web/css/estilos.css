@@ -191,8 +191,32 @@ td{   /* texto de las columnas */
     color: black;
   }
   
+.divEncabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    border-top: 1px solid #ccc; /* ajustar el color y el ancho de la línea superior */
+    border-bottom: 1px solid #ccc; /* ajustar el color y el ancho de la línea inferior */
+}
+
+.btnEncabezado {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #000;
+    border-color: #3f59f0;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #3f59f0;
+    font-weight: bold;
+    text-align: center;
+  }
   
-  
+  .btnEncabezado:hover {
+    background-color: #324ce0;
+    color: #fff;
+  }
 
 
 .btn-estandar{

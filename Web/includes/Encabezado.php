@@ -13,28 +13,22 @@
 </head>
 
 <header>
-    <a href="index.php"><img width="200px" src="images/Logo.png" alt="logo"></a>
+    <a href="index.php">
+        <div>
+            <img src="images/Logo.png" alt="logo"></a>
 
-        <div class="buscador">
-                <input type="text" name="search" placeholder="Buscar..." class="src" autocomplete="off">
-
-                    <!-- <input type="submit" value="buscar"> -->
-        </div>  
-
-        <div class="botones-header">
-            <?php
-                if(@$_SESSION['usuario']==null || $_SESSION['usuario']==''){
-                    echo "<a href='Logueo.php' class='header-icon'>";
-                }else{
-                    echo "<a href='usuario.php' class='header-icon'>";    
-                }
-            ?>
-            <i class='bx bxs-user'></i>
-                    </a>"
-            <a href='carrito.php' class="header-icon">
-                <i class='bx bxs-cart'></i>
-            </a>
+            <div class="divEncabezado">
+                <a class="btnEncabezado" href="index.php">Inicio</a>
+                <a class="btnEncabezado" href="reglamento.php">Reglamento</a>
+                <a class="btnEncabezado" href="instrucciones.php">Instrucciones</a>
+                <a class="btnEncabezado" href="ranking.php">Resultados</a>
+                <a class="btnEncabezado" href="solucionarios.php">Solucionarios</a>
+                <a class="btnEncabezado" href="contactos.php">Contactos</a>
+                <a class="btnEncabezado" href="loginInstitucion.php">Inicio de sesión</a>
+                <a class="btnEncabezado" href="loginAdminForm.php">Administrador</a>
+            </div>
         </div>
+    </a>
 <?php
   include "includes/Conexion.php";
 ?>

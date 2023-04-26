@@ -75,7 +75,7 @@
             );
 
             if (mysqli_num_rows($resultado) != 0) {
-                echo "<script>window.alert('Inicio de sesión exitoso');</script>";
+                echo "<script>location.href='index.php';</script>";
             } else {
                 echo "<script>window.alert('Contreseña o usuario incorrecto.');</script>";
             }
