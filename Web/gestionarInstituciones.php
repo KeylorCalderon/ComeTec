@@ -24,7 +24,7 @@
             <table class="galeria" width="75%">
               <?php
                 $conn=conectar();
-                $result=mysqli_query($conn, "SELECT * FROM institucion");                                     
+                $result=mysqli_query($conn, "SELECT * FROM institucion WHERE estado='1'");                                     
                 while($row=mysqli_fetch_assoc($result)){
                   $idInstitucion=$row['ID'];
                   $nombre = $row['nombre'];

@@ -81,7 +81,7 @@
                 echo '<script>window.location.href = "institucion.php?ID=' . $id . '";</script>';
                 //echo '<script>window.location.href = "institucion.php?";</script>';
             } else {
-                echo "<script>window.alert('Contreseña o usuario incorrecto.');</script>";
+                echo "<script>window.alert('El usuario o la contraseña son incorrectos');</script>";
             }
             mysqli_close($conn);
         }

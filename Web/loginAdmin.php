@@ -21,16 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "<script>location.href='index.php';</script>";
+        echo "<script>location.href='administrador.php';</script>";
     } else {
-        echo "Error al iniciar sesión: " . $conn->error;
+        
+        // Create alert to say that the user or the password are incorrect
+        echo "<script type='text/javascript'>alert('El usuario o la contraseña son incorrectos');</script>";
+        echo "<script>location.href='loginAdminForm.php';</script>";
     }
 
     // Cerramos la conexión a la base de datos
     $conn->close();
-
-    // Redireccionamos a la página de administrador llamado administrador.php
-    header('Location: administrador.php');
 
 }
 ?>
