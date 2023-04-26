@@ -7,7 +7,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Inicio de Sesión de Administrador</title>
+        <title>Inicio de Sesión de Institución</title>
         <link rel="stylesheet" type="text/css" href="css/loginAdmin.css">
     </head>
     <?php
@@ -22,10 +22,8 @@
         </div>
 
         <div class="registro-form">
-            <h2>Inicio de sesión institución</h2>
+            <h2>Inicio de sesión de Institución</h2>
             <form method="POST">
-
-                <h3>Inicio de sesión</h3>
 
                 <label for="username">Nombre de usuario:</label>
                 <input type="text" id="username" name="username" class="registro-input" required>
@@ -75,7 +73,13 @@
             );
 
             if (mysqli_num_rows($resultado) != 0) {
+                // Tomar el ID de la institución
+                $row = mysqli_fetch_array($resultado);
+                $id = $row['ID'];
                 echo "<script>window.alert('Inicio de sesión exitoso');</script>";
+                // Redireccionamos a la página de institución llamado institución.php pasando por parámetro el nombre de usuario
+                echo '<script>window.location.href = "institucion.php?ID=' . $id . '";</script>';
+                //echo '<script>window.location.href = "institucion.php?";</script>';
             } else {
                 echo "<script>window.alert('Contreseña o usuario incorrecto.');</script>";
             }

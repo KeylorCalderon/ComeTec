@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <?php
 $idInstitucion = $_GET['idInstitucion'];
 // Verificamos si se ha enviado el formulario
@@ -17,12 +19,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $sql);
 
     if ($conn->query($sql)) {
-        echo "Se ha aceptado la institución";
+        echo '<script>alert("Se ha autorizado la institución")</script>';
+        /* header('Location: administrador.php'); // Redireccionar a la página de administrador */
+        // Otra manera de redireccionar es con Javascript, usando el siguiente código:
+        echo '<script>window.location.href = "administrador.php";</script>';
     } else {
         echo "Error al aceptar la institución" . $conn->error;
     }
 
     // Cerramos la conexión a la base de datos
     $conn->close();
+
 }
 ?>

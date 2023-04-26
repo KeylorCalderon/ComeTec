@@ -9,7 +9,7 @@ function conectar(){
     $servername = "localhost";
     $database = "cometec_DB";
     $username = "root";
-    $password = "";
+    $password = "root";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
     if(!$conn)
@@ -17,13 +17,6 @@ function conectar(){
         echo "<h3>No se ha podido conectar PHP - MySQL, verifique sus datos.</h3><hr><br>";
         echo $conn->connect_errno;
     }
-    /*
-    else
-    {
-        echo "<h3>Conexion Exitosa PHP - MySQL</h3><hr><br>";
-    }
-    */
-
     return $conn;   
 }
 ?>

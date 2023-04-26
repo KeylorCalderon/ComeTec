@@ -28,5 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Cerramos la conexión a la base de datos
     $conn->close();
+
+    // Redireccionamos a la página de administrador llamado administrador.php
+    header('Location: administrador.php');
+
 }
 ?>
