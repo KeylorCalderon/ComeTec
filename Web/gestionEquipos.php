@@ -38,7 +38,7 @@
                                     <h4>Agregar Nuevo Equipo</h4>
                                 </td>                              
                                 <td class='titulos'  width='150px'>
-                                    <form class='titulos' action='gestionEquipos.php?ID=$institutoID' method='post'>
+                                    <form class='titulos' action='addTeamForm.php?ID=$institutoID' method='post'>
                                         <button type='submit' name='ID' id='$institutoID' class='btn-estandar'>Crear</button>
                                     </form> 
                                 </td>

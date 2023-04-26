@@ -40,7 +40,7 @@
                                     <h4>Agregar Nuevo Estudiante</h4>
                                 </td>                              
                                 <td class='titulos'  width='150px'>
-                                    <form class='titulos' action='equipo.php?ID=$equipoID' method='post'>
+                                    <form class='titulos' action='addStudentForm.php?ID=$equipoID' method='post'>
                                         <button type='submit' name='ID' id='$equipoID' class='btn-estandar'>Añadir</button>
                                     </form> 
                                 </td>
@@ -53,15 +53,17 @@
                   $resultEstudiante=mysqli_query($conn, "SELECT * FROM Estudiante WHERE ID='$estudianteID'");                     
                   $rowE=mysqli_fetch_assoc($resultEstudiante);
                   $estudianteNombre=$rowE['nombre'];
+                  $estudianteApellido = $rowE['apellidos'];
+                  $nombreCompleto = $estudianteNombre . " " . $estudianteApellido;
                   $estudianteIdentificacion=$rowE['identificacion'];
                   echo "<div>
                           <tr class='espacio'></tr>
                             <tr class='galeria-item' bgcolor=#F7F7FE>
                                 <td class='titulos'  width='150px'>
-                                    <h4>$estudianteNombre</h4>
+                                    <h4>$nombreCompleto</h4>
                                 </td>
                                 <td class='titulos'  width='450px'>
-                                    <h4>identificacion: $estudianteIdentificacion</h4>
+                                    <h4>Identificación: $estudianteIdentificacion</h4>
                                 </td>
                                 <td class='titulos'  width='150px'>
                                     <form class='titulos' action= 'delete.php?ID=$estudianteID?IDback=$equipoID' method='post'>
