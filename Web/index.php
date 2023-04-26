@@ -3,32 +3,28 @@
 
     <?php
         include "includes/Encabezado.php";
-    ?>
+    ?>          
 
     <div class="wrapper">
         <main>
             <nav class="menu-paginas">
-                <a href="ReiniciarBD.php">Reiniciar la Base de Datos</a>
-                <a href="automatizacion.php">Registrar empresa</a>
-                <a href="loginInstitucion.php">Iniciar sesión institución</a>
-                <a href="ranking.php">Ver ranking</a>
-                <a href="gestionEquipos.php?ID=1">Gestionar Equipos</a>
-                <a href="loginAdminForm.php">Iniciar Sesión de Administrador</a>
-                <a href="gestionarInstituciones.php">Gestionar Instituciones</a>
-                <a href="gestionarInstitucionesPendientes.php">Gestionar instituciones Pendientes</a>
+                <div class="boton-container">
+                    <button onclick="window.location.href='loginAdminForm.php'">Administrador</button>
+                </div>
+                <div class="boton-container">
+                    <button onclick="window.location.href=''">Estudiante</button>
+                </div>
+                <div class="boton-container">
+                    <button onclick="window.location.href='loginInstitucion.php'">Institución</button>
+                </div>
             </nav>
         </main>
-    </div>
-
-
-    <div class="espacio">
-    </div>
-
-    <div class="espacio">
     </div>
 
     <?php
         include "includes/PiePagina.php";
     ?>
-
+    
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="css/index.css">
 </html>
