@@ -21,7 +21,7 @@
                 </div>
                 <div class="boton-container">
                     <!-- Redirecto to nothing -->
-                    <button onclick="window.location.href=''">Gestionar examenes</button>
+                    <button onclick="window.location.href='gestionarExamen.php'">Gestionar examenes</button>
                 </div>
             </nav>
         </main>
