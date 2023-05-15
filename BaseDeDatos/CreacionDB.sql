@@ -70,12 +70,6 @@ CREATE TABLE PreguntaXImagen(ID INT PRIMARY KEY AUTO_INCREMENT,
                     FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID),
                     FOREIGN KEY (imagenID) REFERENCES Imagen(ID));
 
-CREATE TABLE PreguntaXImagen(ID INT PRIMARY KEY AUTO_INCREMENT,
-                    preguntaID INT,
-                    imagenID INT,
-                    FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID),
-                    FOREIGN KEY (imagenID) REFERENCES Imagen(ID));
-
 CREATE TABLE Calificacion(ID INT PRIMARY KEY AUTO_INCREMENT,
                     examenID INT,
                     estudianteID INT,
