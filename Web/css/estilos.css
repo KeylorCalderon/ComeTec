@@ -1,7 +1,7 @@
 body {
     margin: 0; /* Eliminar el margen predeterminado del cuerpo */
     font-family: Arial, sans-serif; /* Establecer la fuente para todo el documento */
-    background-color: #06005d; /* Color de fondo de la página */
+    background-color: #ffffff; /* Color de fondo de la página */
 }
 
 header {
@@ -131,9 +131,9 @@ background-color: rgb(181, 181, 181); /* Cambiar el color de fondo del botón de
 
   .wrapper{
     position: relative; /* Establecer la posición relativa para el div */
-	left: 152px; /* Mover el div 100 píxeles a la derecha */
     min-height:calc(100%);
-    width: 80%; 
+    width: 94%;
+    margin: 0 auto; /* La palabra clave "auto" hace que se centre horizontalmente */
     align-items: center;
 }
 
@@ -212,9 +212,27 @@ td{   /* texto de las columnas */
     font-weight: bold;
     text-align: center;
   }
+
+  .btnEliminar {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #000;
+    border-color: #f03f3f;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #f03f3f;
+    font-weight: bold;
+    text-align: center;
+  }
   
   .btnEncabezado:hover {
     background-color: #324ce0;
+    color: #fff;
+  }
+
+  .btnEliminar:hover {
+    background-color: #e03232;
     color: #fff;
   }
 
@@ -282,3 +300,105 @@ td{   /* texto de las columnas */
     color: #fff;
   }
 
+  .mi-lista-unica {
+    list-style-type: none;
+    padding: 0;
+    width: 94%;
+    margin: 0 auto;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+    margin: 10px 0;
+    padding: 5px;
+    border: 4px solid #77777734;
+    background-color: #85858518;
+    border-radius: 7px;
+  }
+
+  .mi-lista-unica-respuestas {
+    list-style-type: none;
+    padding: 0;
+    width: 94%;
+    margin: 0 auto;
+  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .mi-lista-unica-respuestas li {
+    width: 95%;
+    margin: 10px 0;
+    padding: 5px;
+    border: 4px solid #77777734;
+    background-color: #85858518;
+    border-radius: 7px;
+  }
+  
+
+  .mi-lista {
+    list-style-type: none;
+    padding: 0;
+    width: 94%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "nombre grado"
+      "fecha editar";
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .mi-lista li {
+    margin: 10px 0;
+    padding: 5px;
+    border: 4px solid #77777734;
+    background-color: #85858518;
+    border-radius: 7px;
+
+    box-sizing: border-box;
+    display: grid;
+    grid-template-areas:
+      "nombre grado"
+      "fecha editar";
+  }
+  
+  .mi-lista li .nombre {
+    grid-area: nombre;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .mi-lista li .grado {
+    grid-area: grado;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mi-lista li .fecha {
+    grid-area: fecha;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mi-lista li .editar {
+    grid-area: editar;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  

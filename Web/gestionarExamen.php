@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+    
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="css/index.css">
 
     <?php
         include "includes/Encabezado.php";
@@ -11,10 +14,7 @@
         <main>
             <nav class="menu-paginas">
                 <div class="boton-container">
-                    <button onclick="window.location.href='addTestForm.php'">Crear Exámen</button>
-                </div>
-                <div class="boton-container">
-                    <button onclick="window.location.href=''">Administrar Examenes</button>
+                    <button onclick="window.location.href='examListForm.php'">Administrar Examenes</button>
                 </div>
             </nav>
         </main>
@@ -24,6 +24,4 @@
         include "includes/PiePagina.php";
     ?>
 
-    <!-- Enlace al archivo CSS -->
-    <link rel="stylesheet" href="css/index.css">
 </html>

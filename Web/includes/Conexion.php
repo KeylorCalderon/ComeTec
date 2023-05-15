@@ -9,7 +9,7 @@ function conectar(){
     $servername = "localhost";
     $database = "cometec_DB";
     $username = "root";
-    $password = "root";
+    $password = "";
 
     $conn = mysqli_connect($servername, $username, $password, $database);
     if(!$conn)

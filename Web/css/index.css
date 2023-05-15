@@ -21,14 +21,16 @@
 
 /* Styles to nav menu-paginas */
 .menu-paginas {
-    background-color: #07055a;
+    /*background-color: #07055a;*/
+    border: 4px solid #77777734;
+    border-radius: 7px;
 }
 
 .boton-container button:hover {
-    background-color: #0056b3; /* Cambiar el color de fondo del botón al pasar por encima */
+    background-color: #ffffff; /* Cambiar el color de fondo del botón al pasar por encima */
 }
 
 /* Send footer to bottom */
 html, body {
     height: 100%;
-}
+}  

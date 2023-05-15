@@ -103,7 +103,7 @@ function crearBD($conn){
 
         $sql= "CREATE TABLE Pregunta(ID INT PRIMARY KEY AUTO_INCREMENT,
         examenID INT,
-        pregunta VARCHAR(500),
+        pregunta VARCHAR(2000),
         puntos INT,
         FOREIGN KEY (examenID) REFERENCES Examen(ID));" ;
         $conn->query($sql);
