@@ -24,13 +24,23 @@
     /*background-color: #07055a;*/
     border: 4px solid #77777734;
     border-radius: 7px;
+    /* Espacio entre nav menu-paginas y los botones */
+    margin-bottom: 25px;
+}
+
+.boton-container button:first-child {
+    margin-top: 25px;
+}
+
+.boton-container button:last-child {
+    margin-bottom: 25px; /* Espacio entre el último botón y el nav menu-paginas */
 }
 
 .boton-container button:hover {
-    background-color: #ffffff; /* Cambiar el color de fondo del botón al pasar por encima */
+    background-color: #1945c0; /* Cambiar el color de fondo del botón al pasar por encima */
 }
 
 /* Send footer to bottom */
-html, body {
+/* html, body {
     height: 100%;
-}  
+} */ 

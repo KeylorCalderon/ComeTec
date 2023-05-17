@@ -18,6 +18,21 @@
                 tr td:last-child  {
                 border-radius: 0px 15px 15px 0px;
             }
+            .btn-estandar {
+                background-color: #007bff;
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                /* Adjust to */
+            }
+            .btn-estandar:hover {
+                background-color: #0069d9;
+            }
+            /*  */ 
         </style>
         <div class="tablaEquipos">
             <table class="tablaEquipos" width="75%">
@@ -25,7 +40,12 @@
               <?php
                 $institutoID=$_GET['ID'];
                 $conn=conectar();
-                $result=mysqli_query($conn, "SELECT * FROM equipo WHERE institucionID=$institutoID");
+                $result=mysqli_query($conn, "SELECT * FROM equipo WHERE institucionID = $institutoID");
+
+                // Get institution name
+                $result2=mysqli_query($conn, "SELECT * FROM institucion WHERE ID = $institutoID");
+                $row2=mysqli_fetch_assoc($result2);
+                $nombreInstitucion = $row2['nombre'];
 
                 echo "<div>
                           <tr class='espacio'></tr>
@@ -33,13 +53,13 @@
                                 <td class='titulos'  width='150px'>
                                     <h4>                    </h4>
                                 </td>
-                                </td>
+                                </td>  
                                 <td class='titulos'  width='450px'>
-                                    <h4>Agregar Nuevo Equipo</h4>
+                                    <h1>$nombreInstitucion</h1>
                                 </td>                              
                                 <td class='titulos'  width='150px'>
                                     <form class='titulos' action='addTeamForm.php?ID=$institutoID' method='post'>
-                                        <button type='submit' name='ID' id='$institutoID' class='btn-estandar'>Crear</button>
+                                        <button type='submit' name='ID' id='$institutoID' class='btn-estandar'>Agregar equipo</button>
                                     </form> 
                                 </td>
                             </tr>
@@ -88,7 +108,7 @@
             dummy.select();
             document.execCommand("copy");
             document.body.removeChild(dummy);
-            alert("El texto se ha copiado al portapapeles."); //Muestra una alerta para confirmar la acción
+            showSuccessAlertNoRedirect("El texto se ha copiado al portapapeles"); //Muestra una alerta para confirmar la acción
         }
 
     </script>
