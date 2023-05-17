@@ -25,14 +25,15 @@
 
         $examenID=$_GET['ID'];
         $conn=conectar();
-        $fechaActual = date("Y-m-d");
         $sql = "SELECT * FROM Pregunta WHERE examenID = $examenID";
         $result=mysqli_query($conn, $sql);
         $n = 1;
 
+
         if ($result->num_rows > 0) {
-            //Manejo de Preguntas
-            while ($row = $result->fetch_assoc()) {
+            echo "<form method='post' action='calcularNota.php'>";
+            echo "<br>";
+            foreach ($result as $row) {
                 $preguntaID = $row['ID'];
                 $pregunta = $row['pregunta'];
                 $puntos = $row['puntos'];
@@ -48,7 +49,7 @@
                     $respuesta = $row2['respuesta'];
                     $correcta = $row2['correcta'];
 
-                    echo "<input type='radio' name='respuesta_$preguntaID' value='$correcta'>";
+                    echo "<input type='radio' name='respuesta_$preguntaID' value='$respuestaID'>";
                     echo "<label>$respuesta</label>";
                     echo "<br>";
                     
@@ -57,12 +58,8 @@
                 $n = $n + 1;
                 echo "<br>";
             }
-
-            echo "<br><br><td class='titulos'  width='150px'>
-                    <form class='titulos' action='ejecutarExamen.php?ID=$preguntaID' method='post'>
-                        <button type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Finalizar</button>
-                    </form> 
-                </td><br>";
+            echo "<input type='submit' value='Enviar respuestas'>";
+            echo "</form>";
         } else {
             echo "No se encontraron preguntas para este examen.";
         }
