@@ -20,8 +20,7 @@
                     <button onclick="window.location.href='ranking.php'">Ver ranking</button>
                 </div>
                 <div class="boton-container">
-                    <!-- Redirecto to nothing -->
-                    <button onclick="window.location.href='administrarExamen.php'">Administrar examenes</button>
+                    <button onclick="window.location.href='gestionarExamen.php'">Administrar examenes</button>
                 </div>
             </nav>
         </main>

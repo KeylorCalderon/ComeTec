@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($conn->query($sql) === TRUE) {
         // Quiero un alert que diga que el examen ha sido registrado correctamente
         echo "<script type='text/javascript'>alert('El examen ha sido registrado correctamente $fecha');</script>";
+        echo "<script>window.location.href = 'gestionarExamen.php';</script>";
     } else {
         // Quiero un alert que diga que el examen no ha sido registrado correctamente
         echo "<script type='text/javascript'>alert('El examen no ha sido registrado correctamente');</script>";

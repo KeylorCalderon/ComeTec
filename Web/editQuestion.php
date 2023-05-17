@@ -32,6 +32,8 @@
             while($row = mysqli_fetch_assoc($result2)){
                 $lista2[] = $row;
             }
+
+            mysqli_close($conn);
         ?>
             <div class="mi-lista-unica">
                 <p class="nombre"><?php echo 'Pregunta #'.$numeroPregunta;  ?></p>
@@ -43,39 +45,63 @@
                     <h1>Respuesta correcta</h1>
                     <li> 
                         <p><?php echo 'Pregunta: '; echo $respuestaCorrecta['ID'];  ?></p>
-                        <p><?php echo 'Puntos: '; echo $respuestaCorrecta['respuesta'];?></p>
+                        <p><?php echo 'Respuesta: '; echo $respuestaCorrecta['respuesta'];?></p>
                         <div>
-                            <form action="editQuestion.php" method="GET">
-                                <input type="hidden" name="ID" value="<?php echo $elemento['ID']; ?>">
-                                <button class="btnEncabezado" type="submit">Editar</button>
-                            </form>
-                            <button class="btnEliminar" type="submit" onclick="confirmDelete('<?php echo $elemento['ID']; ?>', '<?php echo $contador; ?>')">Eliminar</button>
+                        <button class="btnEncabezado" type="submit" onclick="abrirVentanaCorrecta('<?php echo $respuestaCorrecta['ID']; ?>', '<?php echo $respuestaCorrecta['respuesta']; ?>')">Editar</button>
                         </div>
                     </li>
                     <h1>Distractores</h1>
                     <?php $contador = 1;
                     foreach($lista2 as $elemento): ?>
                         <li> 
-                            <p ><?php echo 'Pregunta #'.$contador;  ?></p>
-                            <p ><?php echo 'Pregunta: '; echo $elemento['ID'];  ?></p>
-                            <p ><?php echo 'Puntos: '; echo $elemento['distractor'];?></p>
+                            <H4><?php echo 'Distractor #'.$contador;  ?></H4>
+                            <!-- <p ><?php echo 'Pregunta: '; echo $elemento['ID'];  ?></p> -->
+                            <H4><?php echo "Respuesta: "; echo $elemento['distractor'];?></H4>
                             <div>
-                                <form action="editQuestion.php" method="GET">
-                                    <input type="hidden" name="ID" value="<?php echo $elemento['ID']; ?>">
-                                    <button class="btnEncabezado" type="submit">Editar</button>
-                                </form>
-                                <button class="btnEliminar" type="submit" onclick="confirmDelete('<?php echo $elemento['ID']; ?>', '<?php echo $contador; ?>')">Eliminar</button>
+                                
+                                <button class="btnEncabezado" type="submit" onclick="abrirVentana('<?php echo $contador; ?>', '<?php echo $elemento['ID']; ?>', '<?php echo $elemento['distractor']; ?>')">Editar</button>
+                                <button class="btnEliminar" type="submit" onclick="confirmDelete('<?php echo $elemento['ID']; ?>')">Eliminar</button>
                             </div>
                         </li>
                     <?php $contador++;
-                    endforeach; ?>
+                    endforeach; ?> 
+                    <?php if($contador<=5){ ?>
+                        <li>
+                            <H4>Añadir distractor</H4>
+                            <div>
+                                <button class="btnEncabezado" type="submit" onclick="anadirDistractor('<?php echo $idPregunta; ?>')">Añadir</button>
+                            </div>
+                        </li>
+                    <?php } ?>
                 </ul>
 
             </div>
         </nav>
 	</div>
     <script>
-        function confirmDelete(preguntaID, cont) {
+        function anadirDistractor(idPregunta){
+            // Crear un objeto XMLHttpRequest
+            var xhttp = new XMLHttpRequest();
+
+            // Definir la función que se ejecutará cuando se reciba una respuesta del servidor
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Mostrar la respuesta del servidor en la consola del navegador
+                    location.reload();
+                }
+            };
+
+            // Abrir una conexión con el servidor
+            xhttp.open("POST", "addAnswer.php", true);
+
+            // Establecer las cabeceras de la solicitud
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            // Enviar los datos al servidor
+            xhttp.send("idPregunta="+idPregunta);
+
+        }
+        function confirmDelete(distractorID) {
             // Crear un objeto XMLHttpRequest
             var xhttp = new XMLHttpRequest();
 
@@ -84,20 +110,39 @@
                 if (this.readyState == 4 && this.status == 200) {
                     // Mostrar la respuesta del servidor en la consola del navegador
                     alert(this.responseText);
+                    location.reload();
                 }
             };
 
             // Abrir una conexión con el servidor
-            xhttp.open("POST", "deleteQuestion.php", true);
+            xhttp.open("POST", "deleteAnswer.php", true);
 
             // Establecer las cabeceras de la solicitud
             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
             // Enviar los datos al servidor
-            xhttp.send("preguntaID="+preguntaID);
+            xhttp.send("distractorID="+distractorID);
     
         }
+
+        function abrirVentana(Cont, Id, distractor) {
+            var width = 500; // Ancho de la ventana emergente
+            var height = 500; // Altura de la ventana emergente
+            var left = (screen.width/2) - (width/2); // Posición horizontal centrada
+            var top = (screen.height/2) - (height/2) - 50; // Posición vertical centrada
+            window.open("editAnswer.php?Cont="+Cont+"&ID="+Id+"&Text="+distractor, "ventanaDesplegable", "width="+width+",height="+height+",left="+left+",top="+top);
+        }
+
+        function abrirVentanaCorrecta(Id, distractor) {
+            var width = 500; // Ancho de la ventana emergente
+            var height = 500; // Altura de la ventana emergente
+            var left = (screen.width/2) - (width/2); // Posición horizontal centrada
+            var top = (screen.height/2) - (height/2) - 50; // Posición vertical centrada
+            window.open("editRightAnswer.php?ID="+Id+"&Text="+distractor, "ventanaDesplegable", "width="+width+",height="+height+",left="+left+",top="+top);
+        }
+
     </script>
+
 
 </body>
 </html>

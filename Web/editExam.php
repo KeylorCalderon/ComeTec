@@ -40,13 +40,21 @@
                     </li>
                 <?php $contador++;
                 endforeach; ?>
+                <li>
+                <button class="btnEncabezado" type="submit" onclick="anadirPregunta('<?php echo $idExamen; ?>')">Añadir pregunta</button>
+                </li>
             </ul>
-            <div class="boton-container">
-                <button onclick="window.location.href=''">Administrar Examenes</button>
-            </div>
         </nav>
 	</div>
     <script>
+        function anadirPregunta(examID){
+            var width = 800; // Ancho de la ventana emergente
+            var height = 700; // Altura de la ventana emergente
+            var left = (screen.width/2) - (width/2); // Posición horizontal centrada
+            var top = (screen.height/2) - (height/2) - 50; // Posición vertical centrada
+            window.open("addQuestion.php?examID="+examID, "ventanaDesplegable", "width="+width+",height="+height+",left="+left+",top="+top);
+        }
+
         function confirmDelete(preguntaID, cont) {
             // Crear un objeto XMLHttpRequest
             var xhttp = new XMLHttpRequest();
@@ -56,6 +64,7 @@
                 if (this.readyState == 4 && this.status == 200) {
                     // Mostrar la respuesta del servidor en la consola del navegador
                     alert(this.responseText);
+                    location.reload();
                 }
             };
 
@@ -67,7 +76,6 @@
 
             // Enviar los datos al servidor
             xhttp.send("preguntaID="+preguntaID);
-    
         }
     </script>
 

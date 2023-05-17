@@ -66,7 +66,7 @@
                                 </td>               
                                 
                                 <td class='titulos'  width='150px'>
-                                    <form class='titulos' action='editExam.php?ID=$ID' method='post'>
+                                    <form class='titulos' action='gestionarPreguntas.php?ID=$ID' method='post'>
                                         <button type='submit' name='ID' id='$ID' class='btn-estandar'>Gestionar</button>
                                     </form> 
                                 </td>
