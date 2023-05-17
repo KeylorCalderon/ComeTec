@@ -9,14 +9,33 @@
 <?php
 		$idDistractor=$_GET['ID'];
         $Text=$_GET['Text'];
+        $Valor=$_GET['Valor'];
+
+        echo "<script> window.addEventListener('DOMContentLoaded', (event) => {";
+        if ($Valor == "Correcta") {
+            echo "document.getElementById('correcta').value = 1;";
+        } else {
+            echo "document.getElementById('correcta').value = 0;";
+        }
+        echo "}); </script>";
 ?>
+
+
 <body>
     <div class="wrapper">
     <nav class="menu-paginas">
             <div class="mi-lista-unica" style="text-align:center;">
                 <p class="nombre">Respuesta Correcta</p>
                 <textarea id="alterText" name="nombre_texto" rows="4" cols="50"><?php echo $Text; ?></textarea>
-
+                <div class="form-group">
+                    <label for="correcta">Veracidad:</label>
+                    <select id="correcta" name="correcta">
+                        <?php
+                            echo "<option value='0'>Incorrecta</option>";
+                            echo "<option value='1'>Correcta</option>";
+                        ?>
+                    </select>
+                </div>
                 <div>
                     <button class="btnEncabezado" type="button" onclick="confirmAlter('<?php echo $idDistractor; ?>'); return false;">Guardar cambios</button>
                 </div>
@@ -29,6 +48,9 @@
         var texto = document.getElementById("alterText").value;
         // Crear un objeto XMLHttpRequest
         var xhttp = new XMLHttpRequest();
+
+        var selectElement = document.getElementById("correcta");
+        var veracidad = selectElement.value;
 
         // Definir la función que se ejecutará cuando se reciba una respuesta del servidor
         xhttp.onreadystatechange = function() {
@@ -61,7 +83,7 @@
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
         // Enviar los datos al servidor
-        xhttp.send("distractorID="+distractorID+"&texto=" + texto);
+        xhttp.send("distractorID="+distractorID+"&texto=" + texto+"&veracidad="+veracidad);
 
         }
 

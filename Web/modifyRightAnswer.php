@@ -5,8 +5,9 @@
     // Obtener el ID del registro a eliminar
     $distractorID = $_POST['distractorID'];
     $texto = $_POST['texto'];
+    $veracidad=$_POST['veracidad'];
 
-    $query = "UPDATE Respuesta SET respuesta='$texto' WHERE ID=$distractorID";
+    $query = "UPDATE Respuesta SET respuesta='$texto', correcta='$veracidad' WHERE ID=$distractorID";
     if (mysqli_query($conn, $query)) {
         echo "success";
     } else {

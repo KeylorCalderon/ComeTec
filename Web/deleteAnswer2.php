@@ -9,13 +9,9 @@
     mysqli_begin_transaction($conn);
 
     try {
-        // Eliminar los registros en la tabla PreguntaXDistractor asociados a la pregunta
-        $stmt = mysqli_prepare($conn, "DELETE FROM PreguntaXDistractor WHERE distractorID = ?");
-        mysqli_stmt_bind_param($stmt, "i", $distractorID);
-        mysqli_stmt_execute($stmt);
 
         // Eliminar los registros huérfanos en la tabla Distractor
-        $stmt = mysqli_prepare($conn, "DELETE FROM Distractor WHERE ID=?");
+        $stmt = mysqli_prepare($conn, "DELETE FROM Respuesta WHERE ID=?");
         mysqli_stmt_bind_param($stmt, "i", $distractorID);
         mysqli_stmt_execute($stmt);
 
