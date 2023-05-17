@@ -14,7 +14,7 @@
                     <button onclick="window.location.href='gestionarInstituciones.php'">Gestionar instituciones</button>
                 </div>
                 <div class="boton-container">
-                    <button onclick="window.location.href='gestionarInstitucionesPendientes.php'">Gestionar instituciones Pendientes</button>
+                    <button onclick="window.location.href='gestionarInstitucionesPendientes.php'">Gestionar instituciones pendientes</button>
                 </div>
                 <div class="boton-container">
                     <button onclick="window.location.href='ranking.php'">Ver ranking</button>

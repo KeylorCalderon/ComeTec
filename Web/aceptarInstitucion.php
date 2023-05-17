@@ -1,6 +1,11 @@
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <?php
+
+// Includes 
+include "includes/errorAlert.php";
+include "includes/successAlert.php";
+
+// SweetAlert2
+
 $idInstitucion = $_GET['idInstitucion'];
 // Verificamos si se ha enviado el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
