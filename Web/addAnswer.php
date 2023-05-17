@@ -21,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sqlQuest = "INSERT INTO respuesta (preguntaID, respuesta, correcta) VALUES ('$preguntaID', '$respuesta', '$correcta')";
     if ($conn->query($sqlQuest) === TRUE) {
             // alert que diga que la pregunta ha sido registrado correctamente
-            echo "<script type='text/javascript'>alert('La respuesta ha sido insertada correctamente');</script>";
             // Redireccionar a la página del examen 
             echo '<script>window.location.href = "gestionarRespuestas.php?ID=' . $preguntaID . '";</script>';
     } else {

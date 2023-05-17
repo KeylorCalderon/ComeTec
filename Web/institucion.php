@@ -23,9 +23,6 @@
                 <div class="boton-container">
                     <button onclick="window.location.href=''">Exámenes</button>
                 </div>
-                <div class="boton-container">
-                    <button onclick="window.location.href='Certificado.php'">Generar Certificado</button> <!-- Cambiar de lugar para la siguiente iteracion-->
-                </div>
             </nav>
         </main>
     </div>

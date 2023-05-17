@@ -69,6 +69,7 @@
                 $id = $row['ID'];
                 $nombre = $row['nombre'];
                 echo "<script>window.alert('Inicio de prueba exitoso, equipo: $nombre');</script>";
+                header("Location: seleccionarExamen.php?ID=$id");
             } else {
                 echo "<script>window.alert('Contreseña o usuario incorrecto.');</script>";
             }
