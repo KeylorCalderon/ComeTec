@@ -122,6 +122,7 @@ function crearBD($conn){
         $sql= "CREATE TABLE Respuesta(ID INT PRIMARY KEY AUTO_INCREMENT,
         preguntaID INT,
         respuesta VARCHAR(500),
+        correcta BOOLEAN,
         FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID));" ;
         $conn->query($sql);
 
@@ -381,15 +382,16 @@ function cargarDatos($conn){
                 (8, 24);";
         $conn->query($sql);
 
-        $sql = "INSERT INTO Respuesta(preguntaID, respuesta)
-        VALUES  (1,'Correcta'),
-                (2,'Correcta'),
-                (3,'Correcta'),
-                (4,'Correcta'),
-                (5,'Correcta'),
-                (6,'Correcta'),
-                (7,'Correcta'),
-                (8,'Correcta');";
+        $sql = "INSERT INTO Respuesta(preguntaID, respuesta, correcta)
+        VALUES  (1,'Correcta', 0),
+                (2,'Correcta', 0),
+                (3,'Correcta', 0),
+                (4,'Correcta', 1),
+                (5,'Correcta', 0),
+                (6,'Correcta', 0),
+                (7,'Correcta', 1),
+                (7,'Correcta', 0),
+                (8,'Correcta', 0);";
         $conn->query($sql);
 /*
         $sql = "INSERT INTO Imagen(direccion)
