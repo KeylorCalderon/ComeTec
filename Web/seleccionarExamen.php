@@ -50,7 +50,7 @@
                                       <h4>$nombre - $grado</h4>
                                   </td>               
                                   <td class='titulos'  width='150px'>
-                                      <form class='titulos' action='ejecutarPregunta.php?ID=$ID' method='post'>
+                                      <form class='titulos' action='ejecutarExamen.php?ID=$ID' method='post'>
                                           <button type='submit' name='ID' id='$ID' class='btn-estandar'>Realizar</button>
                                       </form> 
                                   </td>
