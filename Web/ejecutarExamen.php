@@ -37,8 +37,8 @@
                 $pregunta = $row['pregunta'];
                 $puntos = $row['puntos'];
 
-                echo "<p>Pregunta $n: <br> <br> $pregunta</p>";
-                echo "<p>Puntos: $puntos</p>";
+                echo "<h3>Pregunta $n: <br></h3> <h4> $pregunta</h4>";
+                echo "<h4>Puntos: $puntos</h4>";
 
                 //Manejo de respuestas por pregunta
                 $Resql = "SELECT * FROM Respuesta WHERE preguntaID = $preguntaID";
@@ -55,7 +55,14 @@
                 }
 
                 $n = $n + 1;
+                echo "<br>";
             }
+
+            echo "<br><br><td class='titulos'  width='150px'>
+                    <form class='titulos' action='ejecutarExamen.php?ID=$preguntaID' method='post'>
+                        <button type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Finalizar</button>
+                    </form> 
+                </td><br>";
         } else {
             echo "No se encontraron preguntas para este examen.";
         }
