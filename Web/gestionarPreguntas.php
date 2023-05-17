@@ -48,7 +48,7 @@
                                 </td>
                                 <td class='titulos'  width='150px'>
                                     <form class='titulos' action='addQuestionForm.php?ID=$examenID' method='post'>
-                                        <button type='submit' name='ID' id='$examenID' class='btn-estandar'>Añadir</button>
+                                        <button class='btnEncabezado' type='submit' name='ID' id='$examenID' class='btn-estandar'>Añadir</button>
                                     </form> 
                                 </td> 
                             </tr>
@@ -70,17 +70,17 @@
                                 </td>
                                 <td class='titulos'  width='50px'>
                                     <form class='titulos' action='gestionarRespuestas.php?ID=$preguntaID' method='post'>
-                                        <button type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Respuestas</button>
+                                        <button class='btnEncabezado' type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Respuestas</button>
                                     </form> 
                                 </td>
                                 <td class='titulos'  width='50px'>
                                     <form class='titulos' action='gestionarRespuestas.php?ID=$preguntaID' method='post'>
-                                        <button type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Editar</button>
+                                        <button class='btnEncabezado' type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Editar</button>
                                     </form> 
                                 </td>
                                 <td class='titulos'  width='50px'>
                                     <form class='titulos' action='deleteAnswer.php?ID=$preguntaID' method='post'>
-                                        <button type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Eliminar</button>
+                                        <button class='btnEliminar' type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Eliminar</button>
                                     </form> 
                                 </td>
                             </tr>

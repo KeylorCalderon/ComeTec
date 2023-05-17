@@ -44,7 +44,7 @@
                                 </td>
                                 <td class='titulos'  width='150px'>
                                     <form class='titulos' action='addAnswerForm.php?ID=$preguntaID' method='post'>
-                                        <button type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Añadir</button>
+                                        <button class='btnEncabezado' type='submit' name='ID' id='$preguntaID' class='btn-estandar'>Añadir</button>
                                     </form> 
                                 </td>
                             </tr>
@@ -71,13 +71,14 @@
                                 </td>
                                 <td class='titulos'  width='25px'>
                                     <form class='titulos' action='equipo.php?ID=0' method='post'>
-                                        <button type='submit' name='ID' id='0' class='btn-estandar'>Editar</button>
+                                        <button class='btnEncabezado' type='submit' name='ID' id='0' class='btn-estandar'>Editar</button>
                                     </form> 
                                 </td>
                                 <td class='titulos'  width='125px'>
                                     <form class='titulos' action='equipo.php?ID=0' method='post'>
-                                        <button type='submit' name='ID' id='0' class='btn-estandar'>Eliminar</button>
+                                        <button class='btnEliminar' type='submit' name='ID' id='0' class='btn-estandar'>Eliminar</button>
                                     </form> 
+                                    <button class='btnEncabezado' type='submit' onclick='abrirVentanaCorrecta( $respuestaID)'>Editar</button>
                                 </td>
                             </tr>
                           <tr class='espacio'></tr>
@@ -88,9 +89,20 @@
               ?>
             </table>
         </div>
+
+        
     </main>
 
-    
+    <script>
+        function abrirVentanaCorrecta(Id, distractor) {
+            var width = 500; // Ancho de la ventana emergente
+            var height = 500; // Altura de la ventana emergente
+            var left = (screen.width/2) - (width/2); // Posición horizontal centrada
+            var top = (screen.height/2) - (height/2) - 50; // Posición vertical centrada
+            window.open("editRightAnswer.php?ID="+Id+"&Text="+distractor, "ventanaDesplegable", "width="+width+",height="+height+",left="+left+",top="+top);
+        }
+
+    </script>
 
     <?php
         include "includes/PiePagina.php";
@@ -98,5 +110,3 @@
 </body>
 
 </html>
-
-function 
