@@ -1,37 +1,19 @@
 <?php
-    include "includes/Conexion.php";
-    // Conectarse a la base de datos
-    $conn = conectar();
-    // Obtener el ID del registro a eliminar
-    $distractorID = $_POST['distractorID'];
+include_once('db/db_utilities.php');
+include "includes/Conexion.php";
+?>
 
-    // Iniciar la transacción
-    mysqli_begin_transaction($conn);
+<?php
 
-    try {
-        // Eliminar los registros en la tabla PreguntaXDistractor asociados a la pregunta
-        $stmt = mysqli_prepare($conn, "DELETE FROM PreguntaXDistractor WHERE distractorID = ?");
-        mysqli_stmt_bind_param($stmt, "i", $distractorID);
-        mysqli_stmt_execute($stmt);
+$preguntaID= (int)$_GET['ID'];
 
-        // Eliminar los registros huérfanos en la tabla Distractor
-        $stmt = mysqli_prepare($conn, "DELETE FROM Distractor WHERE ID=?");
-        mysqli_stmt_bind_param($stmt, "i", $distractorID);
-        mysqli_stmt_execute($stmt);
+$conn=conectar();
+$back=mysqli_query($conn, "SELECT examenID FROM pregunta WHERE ID='$preguntaID'");
 
-        // Confirmar la transacción
-        mysqli_commit($conn);
-        // Cerrar la conexión a la base de datos
-        mysqli_close($conn);
-        // Enviar una respuesta al cliente
-        http_response_code(200); // Set HTTP status code to 200 OK
-        echo "El registro ha sido eliminado correctamente";
-    } catch(Exception $e) {
-        // Si ocurre un error, cancelar la transacción
-        mysqli_rollback($conn);
-        // Cerrar la conexión a la base de datos
-        mysqli_close($conn);
-        http_response_code(500);
-        echo "El registro no ha podido ser eliminado, hay un error con los datos";
-    }
+while ($row = $back->fetch_assoc()) {
+    $idBack = $row['examenID']."<br>";
+}
+header("Location: gestionarPreguntas.php?ID=$idBack");
+
+deletePregunta($id);
 ?>

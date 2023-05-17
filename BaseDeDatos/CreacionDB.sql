@@ -59,6 +59,7 @@ CREATE TABLE PreguntaXDistractor(ID INT PRIMARY KEY AUTO_INCREMENT,
 CREATE TABLE Respuesta(ID INT PRIMARY KEY AUTO_INCREMENT,
                     preguntaID INT,
                     respuesta VARCHAR(500),
+                    correcta BOOLEAN,
                     FOREIGN KEY (preguntaID) REFERENCES Pregunta(ID));
 
 CREATE TABLE Imagen(ID INT PRIMARY KEY AUTO_INCREMENT,
