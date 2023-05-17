@@ -1,9 +1,23 @@
 <?php
+
+include "includes/errorAlert.php";
+include "includes/successAlert.php";
+
+?>
+
+<?php
+
 // Verificamos si se ha enviado el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Obtenemos los datos del formulario
     $username = $_POST['username'];
     $password = $_POST['password'];
+
+    // Check if the fields are empty
+    if ($username == "" || $password == "") {
+        // Show error alert
+        showErrorAlert("Debe llenar todos los campos solicitados", "loginInstitucion.php");
+    }
 
     // Aquí podrías validar que los datos sean correctos antes de guardarlos en la base de datos
 
@@ -21,12 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        echo "<script>location.href='administrador.php';</script>";
+        showSuccessAlert("Inicio de sesión exitoso", "administrador.php");
     } else {
         
         // Create alert to say that the user or the password are incorrect
-        echo "<script type='text/javascript'>alert('El usuario o la contraseña son incorrectos');</script>";
-        echo "<script>location.href='loginAdminForm.php';</script>";
+        showErrorAlert("El usuario o la contraseña son incorrectos", "loginAdminForm.php");
+        // echo "<script type='text/javascript'>alert('El usuario o la contraseña son incorrectos');</script>";
+        // echo "<script>location.href='loginAdminForm.php';</script>";
     }
 
     // Cerramos la conexión a la base de datos

@@ -71,7 +71,10 @@ function crearBD($conn){
         usuario VARCHAR(50),
         contrasena VARCHAR(50),
         nombre VARCHAR(250),
-        estado BIT);" ;
+        estado BIT, 
+        correoElectronico VARCHAR(255),
+        telefono INT,
+        nombreResponsable VARCHAR(128));" ;
         $conn->query($sql);
 
         $sql= "CREATE TABLE Grado(ID INT PRIMARY KEY AUTO_INCREMENT,
